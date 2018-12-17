@@ -14,6 +14,7 @@
         <org.springframework-version>5.0.4.RELEASE</org.springframework-version>
         <org.aspectj-version>1.8.1</org.aspectj-version>
         <tiles-version>3.0.3</tiles-version>
+        <slf4j-api.version>1.6.1</slf4j-api.version>
     </properties>
 
     <dependencies>
@@ -59,14 +60,14 @@
 
         <!-- Logging -->
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>LATEST</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-api.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-            <version>LATEST</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j-api.version}</version>
         </dependency>
 
         <!-- @Inject -->
@@ -208,6 +209,12 @@
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-extras</artifactId>
             <version>${tiles-version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>jcl-over-slf4j</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -236,6 +243,13 @@
 
     </dependencies>
 
+    <repositories>
+        <repository>
+            <id>mvn-repo</id>
+            <name>Mvn-Repo</name>
+            <url>https://mvnrepository.com/artifact</url>
+        </repository>
+    </repositories>
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
