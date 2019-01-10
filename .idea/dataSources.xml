@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="npft_db@localhost" uuid="c437c928-9d1e-40d4-8c7d-805906f28c5f">
+    <data-source source="LOCAL" name="npft_db@localhost" uuid="1b82adb0-6f36-48bc-b6ee-fab46e8655c2">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/npft_db</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="npft" uuid="4d7f66e0-8766-465e-b347-22dad314c367">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+/home/mfmohamadfaez/IdeaProjects/npft/src/main/resources/hibernate.cfg.xml</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/npft_db</jdbc-url>
     </data-source>

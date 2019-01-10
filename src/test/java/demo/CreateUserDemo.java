@@ -27,8 +27,8 @@ public class CreateUserDemo {
             participant1.setAge(21);
             participant1.setBodyNo(101);
             participant1.setGender('M');
-            participant1.setHeight(175);
-            participant1.setWeight(60);
+//            participant1.setHeight(175);
+//            participant1.setWeight(60);
             participant1.setNricNo("970604-05-5051");
             participant1.setTurnNo(101);
             //start a transaction

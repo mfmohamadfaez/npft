@@ -23,10 +23,10 @@ public class TestResultDao {
     }
 
     @Transactional
-    public int calcTotalMarks(int id){
+    public int calcTotalMarks(int pid){
 
         Session session = sessionFactory.getCurrentSession();
-        List<TestResult> testResults = session.createQuery("select tr from TestResult tr where tr.pId.id=:id ").setParameter("id", id).getResultList();
+        List<TestResult> testResults = session.createQuery("select tr from TestResult tr where tr.pId.id=:pid ").setParameter("pid", pid).getResultList();
 
         int sum=0;
         for (TestResult testResult: testResults) {
@@ -47,6 +47,15 @@ public class TestResultDao {
             score = testResult.getScore();
         }
         return score;
+    }
+
+    @Transactional
+    public List<TestResult> getTestResult(int pid, int tid){
+
+        Session session = sessionFactory.getCurrentSession();
+        List<TestResult> testResults = session.createQuery("select tr from TestResult tr where tr.pId.id=:pid and tr.testId.id=:tid ").setParameter("pid", pid).setParameter("tid", tid).getResultList();
+
+        return testResults;
     }
 
     @Transactional

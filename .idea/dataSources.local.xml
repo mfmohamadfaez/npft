@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="npft_db@localhost" uuid="c437c928-9d1e-40d4-8c7d-805906f28c5f">
+    <data-source name="npft_db@localhost" uuid="1b82adb0-6f36-48bc-b6ee-fab46e8655c2">
       <database-info product="PostgreSQL" version="10.6 (Ubuntu 10.6-0ubuntu0.18.04.1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2" dbms="POSTGRES" exact-version="10.6">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
       <user-name>npft</user-name>
-      <introspection-schemas>npft_db:@</introspection-schemas>
+      <introspection-schemas>@:@</introspection-schemas>
+    </data-source>
+    <data-source name="npft" uuid="4d7f66e0-8766-465e-b347-22dad314c367">
+      <database-info product="PostgreSQL" version="10.6 (Ubuntu 10.6-0ubuntu0.18.04.1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2" dbms="POSTGRES" exact-version="10.6">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <user-name>npft</user-name>
+      <introspection-schemas>@:@</introspection-schemas>
     </data-source>
   </component>
 </project>

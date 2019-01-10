@@ -1,6 +1,7 @@
 package org.faezCode.npft.Entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "participant")
@@ -12,28 +13,42 @@ public class Participant {
     private int id;
 
     @Column(name = "p_body_no")
-    private int bodyNo;
+    @NotNull
+    private Integer bodyNo;
 
     @Column(name = "p_fullname")
+    @Size(min=2)
+    @NotNull
     private String name;
 
     @Column(name = "p_turn_no")
-    private int turnNo;
+    @NotNull
+    private Integer turnNo;
 
     @Column(name = "p_nric_no")
+    @NotNull
+    @Size(min=14)
     private String nricNo;
 
     @Column(name = "p_age")
-    private int age;
+    @NotNull
+    @Min(value = 18, message = "Age should not be less than 18")
+    @Max(value = 150, message = "Age should not be greater than 150")
+    private Integer age;
 
     @Column(name = "p_gender")
+    @NotNull
     private char gender;
 
     @Column(name = "p_height")
-    private double height;
+    @NotNull
+    @Min(value = 1, message = "Height should not be less than 1")
+    private Double height;
 
     @Column(name = "p_weight")
-    private double weight;
+    @NotNull
+    @Min(value = 1, message = "Height should not be less than 1")
+    private Double weight;
 
     public Participant() {
     }
@@ -46,11 +61,11 @@ public class Participant {
         this.id = id;
     }
 
-    public int getBodyNo() {
+    public Integer getBodyNo() {
         return bodyNo;
     }
 
-    public void setBodyNo(int bodyNo) {
+    public void setBodyNo(Integer bodyNo) {
         this.bodyNo = bodyNo;
     }
 
@@ -62,11 +77,11 @@ public class Participant {
         this.name = name;
     }
 
-    public int getTurnNo() {
+    public Integer getTurnNo() {
         return turnNo;
     }
 
-    public void setTurnNo(int turnNo) {
+    public void setTurnNo(Integer turnNo) {
         this.turnNo = turnNo;
     }
 
@@ -78,11 +93,11 @@ public class Participant {
         this.nricNo = nricNo;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
@@ -94,19 +109,19 @@ public class Participant {
         this.gender = gender;
     }
 
-    public double getHeight() {
+    public Double getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(Double height) {
         this.height = height;
     }
 
-    public double getWeight() {
+    public Double getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(Double weight) {
         this.weight = weight;
     }
 

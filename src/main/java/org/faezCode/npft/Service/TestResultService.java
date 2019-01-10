@@ -22,9 +22,9 @@ public class TestResultService {
 
     }
 
-    public int calcTotalMarks(int id){
+    public int calcTotalMarks(int pid){
 
-        int totalMarks = testResultDao.calcTotalMarks(id);
+        int totalMarks = testResultDao.calcTotalMarks(pid);
         return totalMarks;
 
     }
@@ -33,6 +33,14 @@ public class TestResultService {
 
         int score = testResultDao.getTestScore(pid, tid);
         return score;
+
+    }
+
+    public List<TestResult> getTestResult(int pid, int tid){
+
+        List<TestResult> testResult = testResultDao.getTestResult(pid, tid);
+
+        return testResult;
 
     }
 

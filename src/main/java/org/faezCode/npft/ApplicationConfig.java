@@ -3,6 +3,7 @@ package org.faezCode.npft;
 import org.faezCode.npft.config.DataSourceConfig;
 import org.faezCode.npft.config.WebMVCConfig;
 import org.springframework.context.annotation.*;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -26,5 +27,12 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @PropertySource(value = "classpath:application.properties")
 public class ApplicationConfig {
 
+    @Bean
+    public ResourceBundleMessageSource messageSource() {
+        ResourceBundleMessageSource source = new ResourceBundleMessageSource();
+        source.setBasename("messages");
+        source.setUseCodeAsDefaultMessage(true);
+        return source;
+    }
 
 }
