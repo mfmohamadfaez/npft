@@ -623,7 +623,6 @@ public class TestResultController {
           OverallMarks overallMarks = new OverallMarks();
           overallMarks.setpId(participantService.findById(Integer.parseInt(pId[0])));
           overallMarks.setTotalMark(totalMarks);
-          overallMarks.setAwardType("");
           if (bleepScore==2 && bmiScore==2 && totalMarks>=10){
               overallMarks.setAwardType("Bronze");
           }
@@ -638,6 +637,9 @@ public class TestResultController {
           }
           else if ((bleepScore>=2 && bleepScore<=3) && (bmiScore>=2 && bmiScore<=3) && totalMarks<10){
               overallMarks.setAwardType("Active Lifestyle Capabilities");
+          }
+          else {
+              overallMarks.setAwardType("No Award");
           }
 
           //start a transaction

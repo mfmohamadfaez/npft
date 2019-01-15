@@ -1,15 +1,22 @@
 package demo;
 
 import org.faezCode.npft.Entity.Participant;
+import org.faezCode.npft.Entity.TestResult;
+import org.faezCode.npft.Service.OverallMarksService;
+import org.faezCode.npft.Service.ParticipantService;
+import org.faezCode.npft.Service.TestResultService;
 import org.faezCode.test.TestApplicationConfig;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
@@ -18,6 +25,15 @@ public class CreateUserTest {
 
     @Autowired
     private SessionFactory factory;
+
+    @Autowired
+    private TestResultService testResultService;
+
+    @Autowired
+    private ParticipantService participantService;
+
+    @Autowired
+    private OverallMarksService overallMarksService;
 
     @Test
     public void testCreateuser() {
@@ -33,8 +49,8 @@ public class CreateUserTest {
             participant1.setAge(21);
             participant1.setBodyNo(101);
             participant1.setGender('M');
-            participant1.setHeight(175);
-            participant1.setWeight(60);
+//            participant1.setHeight(175);
+//            participant1.setWeight(60);
             participant1.setNricNo("970604-05-5051");
             participant1.setTurnNo(101);
 
@@ -48,5 +64,39 @@ public class CreateUserTest {
         }
 
     }
+
+    @Test
+    public void getTestResult(){
+
+        Session session = factory.getCurrentSession();
+
+        List<TestResult> testResult = testResultService.getTestResult(6, 1);
+
+        TestResult tr = testResult.get(0);
+        System.out.println("MARK : "+tr.getMark()+"SCORE : "+tr.getScore());
+
+    }
+
+    @Test
+    public void getTotalMark(){
+
+        Session session = factory.getCurrentSession();
+
+        int totalMark = overallMarksService.getTotalMark(6);
+
+        Assert.assertEquals(30, totalMark);
+    }
+
+    @Test
+    public void delete(){
+
+        Session session = factory.getCurrentSession();
+
+        participantService.deleteParticipant(2);
+//        Assert.assertThat(participantService.findById(2), null);
+        Assert.assertEquals(null, participantService.findById(2));
+    }
+
+
 
 }

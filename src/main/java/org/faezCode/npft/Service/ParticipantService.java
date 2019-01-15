@@ -24,4 +24,10 @@ public class ParticipantService {
         Participant participant = participantDao.findById(id);
         return participant;
     }
+
+    public void deleteParticipant(int id){
+
+        participantDao.deleteParticipant(id);
+
+    }
 }

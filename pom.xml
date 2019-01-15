@@ -229,6 +229,13 @@
             <version>0.32</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>datatables</artifactId>
+            <version>1.10.19</version>
+        </dependency>
+
+
         <!-- Gson Google -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -239,6 +246,13 @@
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20140107</version>
+        </dependency>
+
+        <!-- Jasper report -->
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>6.7.0</version>
         </dependency>
 
     </dependencies>

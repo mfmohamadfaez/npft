@@ -28,6 +28,8 @@ public class WebMVCConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("index");
+        registry.addViewController("/login").setViewName("index");
+        registry.addViewController("/navbar").setViewName("navbar");
+        registry.addViewController("/dt").setViewName("dataTablesDemo");
     }
 }
